@@ -25,7 +25,10 @@ public class Test {
 //            List<Video> videoList = videoMapper.selectList();
 //            System.out.println(videoList.toString());
 
-            List<Video> videos = videoMapper.selectListByXML();
+//            List<Video> videos = videoMapper.selectListByXML();
+//            System.out.println(videos.toString());
+
+            List<Video> videos = videoMapper.selectByPointAndTitleLike(8.7,"HTML");
             System.out.println(videos.toString());
         }
     }

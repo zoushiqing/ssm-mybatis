@@ -6,6 +6,9 @@
     <select id="selectById" resultType="net.xdclass.online_class.domain.Video">
  select * from video where id = #{video_id}
  </select>
+    <select id="selectByPointAndTitleLike" resultType="net.xdclass.online_class.domain.Video">
+ select * from video where point = #{point} and title like concat('%',#{title},'%')
+ </select>
     <select id="selectListByXML" resultType="net.xdclass.online_class.domain.Video">
  select * from video
  </select>

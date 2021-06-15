@@ -12,7 +12,10 @@ public interface VideoMapper {
      * @param videoId
      * @return
      */
-    Video selectById(@Param("video_id") int videoId);
+//    Video selectById(@Param("video_id") int videoId);
+    Video selectById( int videoId);
+
+    List<Video> selectByPointAndTitleLike(@Param("point") double videoId,@Param("title") String title);
 
     /**
      * 查询全部视频列表
@@ -26,4 +29,6 @@ public interface VideoMapper {
      */
     @Select("select * from video limit 0,1")
     List<Video> selectList();
+
+
 }
