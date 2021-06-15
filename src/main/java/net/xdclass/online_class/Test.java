@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -32,16 +33,39 @@ public class Test {
 //            List<Video> videos = videoMapper.selectByPointAndTitleLike(8.7,"HTML");
 //            System.out.println(videos.toString());
 
-            Video video=new Video();
-            video.setTitle("小滴课堂面试专题300道");
-            video.setCoverImg("xdclass.net/aaaa.img");
-            video.setPoint(9.40);
-            video.setCreateTime(new Date());
-            video.setPrice(9900);
-            video.setSummary("面试专题概要");
-            int add = videoMapper.add(video);
+//            Video video=new Video();
+//            video.setTitle("小滴课堂面试专题300道");
+//            video.setCoverImg("xdclass.net/aaaa.img");
+//            video.setPoint(9.40);
+//            video.setCreateTime(new Date());
+//            video.setPrice(9900);
+//            video.setSummary("面试专题概要");
+//            int add = videoMapper.add(video);
+//            System.out.println(add);
+//            System.out.println(video);
+
+            Video video1=new Video();
+            video1.setTitle("小滴课堂面试专题300道video1");
+            video1.setCoverImg("xdclass.net/aaaa.img");
+            video1.setPoint(9.40);
+            video1.setCreateTime(new Date());
+            video1.setPrice(9900);
+            video1.setSummary("面试专题概要");
+
+            Video video2=new Video();
+            video2.setTitle("小滴课堂面试专题300道video2");
+            video2.setCoverImg("xdclass.net/aaaa.img");
+            video2.setPoint(9.40);
+            video2.setCreateTime(new Date());
+            video2.setPrice(9900);
+            video2.setSummary("面试专题概要");
+
+            List<Video> videos=new ArrayList<>();
+            videos.add(video1);
+            videos.add(video2);
+            int add = videoMapper.addBatch(videos);
             System.out.println(add);
-            System.out.println(video);
+            System.out.println(videos);
         }
     }
 }

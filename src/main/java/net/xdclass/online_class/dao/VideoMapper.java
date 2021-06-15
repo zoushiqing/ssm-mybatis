@@ -37,4 +37,11 @@ public interface VideoMapper {
      */
     int add(Video video);
 
+    /**
+     * 新增多条记录
+     * @param video
+     * @return
+     */
+    int addBatch(List<Video> video);
+
 }
