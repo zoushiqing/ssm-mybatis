@@ -19,7 +19,6 @@ public class Video {
     private String coverImg;
     private int price;
     private Date createTime;
-    private int cId;
     private double point;
 
     public String getSummary() {
@@ -52,14 +51,6 @@ public class Video {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
-    }
-
-    public int getcId() {
-        return cId;
-    }
-
-    public void setcId(int cId) {
-        this.cId = cId;
     }
 
     public Double getPoint() {
@@ -95,7 +86,6 @@ public class Video {
                 ", coverImg='" + coverImg + '\'' +
                 ", price=" + price +
                 ", createTime=" + createTime +
-                ", cId=" + cId +
                 ", point=" + point +
                 '}';
     }

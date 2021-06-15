@@ -16,6 +16,12 @@ public interface VideoMapper {
 
     /**
      * 查询全部视频列表
+     * 通过xml
+     * @return
+     */
+    List<Video> selectListByXML();
+    /**
+     * 查询全部视频列表
      * @return
      */
     @Select("select * from video limit 0,1")

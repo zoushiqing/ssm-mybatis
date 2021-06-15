@@ -21,8 +21,12 @@ public class Test {
             VideoMapper videoMapper = sqlSession.getMapper(VideoMapper.class);
 //            Video video = videoMapper.selectById(44);
 //            System.out.println(video.toString());
-            List<Video> videoList = videoMapper.selectList();
-            System.out.println(videoList.toString());
+
+//            List<Video> videoList = videoMapper.selectList();
+//            System.out.println(videoList.toString());
+
+            List<Video> videos = videoMapper.selectListByXML();
+            System.out.println(videos.toString());
         }
     }
 }
