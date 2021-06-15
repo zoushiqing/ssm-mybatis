@@ -12,8 +12,8 @@ public interface VideoMapper {
      * @param videoId
      * @return
      */
-//    Video selectById(@Param("video_id") int videoId);
-    Video selectById( int videoId);
+    Video selectById(@Param("video_id") int videoId);
+//    Video selectById( int videoId);
 
     List<Video> selectByPointAndTitleLike(@Param("point") double videoId,@Param("title") String title);
 
