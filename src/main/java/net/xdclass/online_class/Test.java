@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Date;
 import java.util.List;
 
 public class Test {
@@ -28,8 +29,19 @@ public class Test {
 //            List<Video> videos = videoMapper.selectListByXML();
 //            System.out.println(videos.toString());
 
-            List<Video> videos = videoMapper.selectByPointAndTitleLike(8.7,"HTML");
-            System.out.println(videos.toString());
+//            List<Video> videos = videoMapper.selectByPointAndTitleLike(8.7,"HTML");
+//            System.out.println(videos.toString());
+
+            Video video=new Video();
+            video.setTitle("小滴课堂面试专题300道");
+            video.setCoverImg("xdclass.net/aaaa.img");
+            video.setPoint(9.40);
+            video.setCreateTime(new Date());
+            video.setPrice(9900);
+            video.setSummary("面试专题概要");
+            int add = videoMapper.add(video);
+            System.out.println(add);
+            System.out.println(video);
         }
     }
 }

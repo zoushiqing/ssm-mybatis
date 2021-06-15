@@ -12,4 +12,13 @@
     <select id="selectListByXML" resultType="net.xdclass.online_class.domain.Video">
  select * from video
  </select>
+
+    <insert id="add" parameterType="net.xdclass.online_class.domain.Video" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+	INSERT INTO `video` (`title`,`summary`,`cover_img`,`price`,`create_time`,`point`)
+	VALUES
+	(#{title,jdbcType=VARCHAR},#{summary,jdbcType=VARCHAR},#{coverImg,jdbcType=VARCHAR},#{price,jdbcType=INTEGER},
+	#{createTime,jdbcType=TIMESTAMP},#{point,jdbcType=DOUBLE}
+	);
+</insert>
+
 </mapper>

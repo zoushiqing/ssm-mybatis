@@ -30,5 +30,11 @@ public interface VideoMapper {
     @Select("select * from video limit 0,1")
     List<Video> selectList();
 
+    /**
+     * 新增一条记录
+     * @param video
+     * @return
+     */
+    int add(Video video);
 
 }
