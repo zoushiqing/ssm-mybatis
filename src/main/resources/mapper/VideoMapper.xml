@@ -8,5 +8,8 @@
  </select>
     <select id="selectListByXML" resultType="net.xdclass.online_class.domain.Video">
  select * from video
+            
+            
+            
  </select>
 </mapper>
