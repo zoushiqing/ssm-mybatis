@@ -13,22 +13,47 @@
  select * from video
  </select>
 
-    <insert id="add" parameterType="net.xdclass.online_class.domain.Video" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+    <insert id="add" parameterType="net.xdclass.online_class.domain.Video" useGeneratedKeys="true" keyProperty="id"
+            keyColumn="id">
 	INSERT INTO `video` (`title`,`summary`,`cover_img`,`price`,`create_time`,`point`)
 	VALUES
 	(#{title,jdbcType=VARCHAR},#{summary,jdbcType=VARCHAR},#{coverImg,jdbcType=VARCHAR},#{price,jdbcType=INTEGER},
 	#{createTime,jdbcType=TIMESTAMP},#{point,jdbcType=DOUBLE}
 	);
 </insert>
-    <insert id="addBatch" parameterType="net.xdclass.online_class.domain.Video" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
-	INSERT INTO `video` (`title`,`summary`,`cover_img`,`price`,`create_time`,`point`)
-	VALUES
-	<foreach collection="list" item="video" separator=",">
-        (#{video.title,jdbcType=VARCHAR},#{video.summary,jdbcType=VARCHAR},#{video.coverImg,jdbcType=VARCHAR},#{video.price,jdbcType=INTEGER},
-        #{video.createTime,jdbcType=TIMESTAMP},#{video.point,jdbcType=DOUBLE}
-        )
-    </foreach>
+    <insert id="addBatch" parameterType="net.xdclass.online_class.domain.Video" useGeneratedKeys="true" keyProperty="id"
+            keyColumn="id">
+        INSERT INTO `video` (`title`,`summary`,`cover_img`,`price`,`create_time`,`point`)
+        VALUES
+        <foreach collection="list" item="video" separator=",">
+            (#{video.title,jdbcType=VARCHAR},#{video.summary,jdbcType=VARCHAR},#{video.coverImg,jdbcType=VARCHAR},#{video.price,jdbcType=INTEGER},
+            #{video.createTime,jdbcType=TIMESTAMP},#{video.point,jdbcType=DOUBLE}
+            )
+        </foreach>
 
-</insert>
+    </insert>
+    <update id="videoUpdate" parameterType="net.xdclass.online_class.domain.Video">
+        update `video`
+        set
+        title = #{title,jdbcType=VARCHAR},
+        summary = #{summary,jdbcType=VARCHAR},
+        cover_img = #{coverImg,jdbcType=VARCHAR},
+        price = #{price,jdbcType=INTEGER},
+        point = #{point,jdbcType=INTEGER}
+        WHERE
+        id = #{id}
+    </update>
+    <update id="videoUpdateSelective" parameterType="net.xdclass.online_class.domain.Video">
+        update `video`
+        <trim prefix="set" suffixOverrides=",">
+            <if test="title !=null">title = #{title,jdbcType=VARCHAR},</if>
+            <if test="summary !=null">summary = #{summary,jdbcType=VARCHAR},</if>
+            <if test="coverImg !=null">cover_img = #{coverImg,jdbcType=VARCHAR},</if>
+            <if test="price !=0">price = #{price,jdbcType=INTEGER},</if>
+            <if test="point !=0">point = #{point,jdbcType=INTEGER},</if>
+        </trim>
+        WHERE
+        id = #{id}
+    </update>
 
 </mapper>

@@ -36,6 +36,18 @@ public interface VideoMapper {
      * @return
      */
     int add(Video video);
+    /**
+     * 更新一条记录
+     * @param video
+     * @return
+     */
+    int videoUpdate(Video video);
+    /**
+     * 更新一条记录
+     * @param video
+     * @return
+     */
+    int videoUpdateSelective(Video video);
 
     /**
      * 新增多条记录
